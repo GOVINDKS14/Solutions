@@ -6,3 +6,6 @@ class Solution {
         return n==1;
     }
 }
+
+
+Explanation - https://leetcode.com/discuss/topic/3629501/ologn-solution-approach-code-java/
