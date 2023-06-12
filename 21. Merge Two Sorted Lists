@@ -18,3 +18,6 @@ class Solution {
         return dummy.next;
     }
 }
+
+
+// Explanation- https://leetcode.com/discuss/topic/3626958/simple-approach-detailed-explanation-intuition-code-java/
