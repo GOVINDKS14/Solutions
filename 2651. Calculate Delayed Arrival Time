@@ -1,0 +1,8 @@
+class Solution {
+    public int findDelayedArrivalTime(int arrivalTime, int delayedTime) {
+        return (arrivalTime + delayedTime)%24;
+    }
+}
+
+
+Explanation- https://leetcode.com/problems/calculate-delayed-arrival-time/solutions/3632830/one-line-solution-approach-code/
