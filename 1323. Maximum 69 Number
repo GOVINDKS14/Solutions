@@ -1,0 +1,19 @@
+class Solution {
+    public int maximum69Number (int num) {
+        if(num==9) return num;
+        if(num==99 || num==69 || num==96) return 99;
+        String str = Integer.toString(num);
+        StringBuilder sb = new StringBuilder("");
+        int i=0;
+        while(str.charAt(i)=='9'){
+            sb.append(str.charAt(i));
+            i++;
+            if(i==str.length()-1) break;
+        }
+        sb.append('9');
+        for(int j=i+1; j<str.length(); j++) sb.append(str.charAt(j));
+        return Integer.valueOf(sb.toString());
+    }
+}
+
+Explanation --  https://leetcode.com/problems/maximum-69-number/solutions/3645291/full-detailed-explanation-intuition-approach-code-java/
