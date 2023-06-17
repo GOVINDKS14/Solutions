@@ -1,0 +1,16 @@
+class Solution {
+    public String restoreString(String s, int[] indices) {
+        HashMap<Integer,Character> map = new HashMap<>();
+        int n=s.length();
+        for(int i=0; i<n; i++){
+            map.put(indices[i],s.charAt(i));
+        }
+        StringBuilder sb = new StringBuilder("");
+        for(int i=0; i<n; i++){
+            sb.append(map.get(i));
+        }
+        return sb.toString();
+    }
+}
+
+Explanation -- https://leetcode.com/problems/shuffle-string/solutions/3649514/o-n-time-and-space-complexity-approach-code-java/
