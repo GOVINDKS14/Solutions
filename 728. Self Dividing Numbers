@@ -1,0 +1,24 @@
+class Solution {
+    public int check(int n){
+        String str = Integer.toString(n);
+        for(int i=0; i<str.length(); i++){
+            char ch = str.charAt(i);
+            if(ch=='0') return -1;
+            if(n%Character.getNumericValue(ch)!=0){
+                return -1;
+            }
+        }
+        return n;
+    }
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> list = new ArrayList<Integer>();
+        for(int i=left; i<=right; i++){
+            if(check(i)!=-1){
+                list.add(i);
+            }
+        }
+        return list;
+    }
+}
+
+Explanation -- https://leetcode.com/problems/self-dividing-numbers/solutions/3649033/simple-step-by-step-explanation-approach-code-java/
