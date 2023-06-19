@@ -1,0 +1,13 @@
+class Solution {
+    public int findValueOfPartition(int[] nums) {
+        Arrays.sort(nums);
+        int n=nums.length, min=Integer.MAX_VALUE;
+        for(int i=1; i<n; i++){
+            int diff = nums[i]-nums[i-1];
+            if(diff<min) min=diff;
+        }
+        return Math.abs(min);
+    }
+}
+
+Explanation -- https://leetcode.com/problems/find-the-value-of-the-partition/solutions/3656226/o-n-simple-solution-approach-code-java/
