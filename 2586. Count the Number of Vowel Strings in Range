@@ -1,0 +1,16 @@
+class Solution {
+    public boolean check(String str){
+        char s = str.charAt(0);
+        char l = str.charAt(str.length()-1);
+        if((s=='a' || s=='e' || s=='i' || s=='o' || s=='u')
+        && (l=='a' || l=='e' || l=='i' || l=='o' || l=='u')) return true;
+        return false;
+    }
+    public int vowelStrings(String[] words, int left, int right) {
+        int cnt=0;
+        for(int i=left; i<=right; i++){
+            if(check(words[i])==true) cnt++;
+        }
+        return cnt;
+    }
+}
