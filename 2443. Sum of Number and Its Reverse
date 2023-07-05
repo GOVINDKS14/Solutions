@@ -1,0 +1,15 @@
+class Solution {
+    public int reverse(int n){
+        StringBuilder sb = new StringBuilder("");
+        String s = Integer.toString(n);
+        for(int i=0;i<s.length();i++) sb.append(s.charAt(i));
+        return Integer.parseInt(sb.reverse().toString());
+    }
+    public boolean sumOfNumberAndReverse(int num) {
+        if(num==0) return true;
+        for(int i=1; i<num;i++){
+            if(i+reverse(i)==num) return true;
+        }
+        return false;
+    }
+}
