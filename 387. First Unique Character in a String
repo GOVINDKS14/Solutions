@@ -1,0 +1,16 @@
+class Solution {
+    public int firstUniqChar(String s) {
+        int temp[] = new int[256];
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            temp[c-'0']++;
+        }
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            if(temp[c-'0']==1) return i;
+        }
+        return -1;
+    }
+}
+//Creating a array and entering frequency of every character.
+//Traversing again and checking whether the character has freq as 1. If it has then it is first non-repeating character. 
