@@ -1,0 +1,7 @@
+class Solution {
+    public int lengthOfLastWord(String s) {
+        String splited[] = s.split("\\s+");
+        return splited[splited.length-1].length();
+    }
+}
+//Split the sentence by words and then return the length of the last word.
