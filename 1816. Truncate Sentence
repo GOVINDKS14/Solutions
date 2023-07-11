@@ -1,0 +1,13 @@
+class Solution {
+    public String truncateSentence(String s, int k) {
+        if(s.length()==k) return s; 
+        String splited[] = s.split("\\s+");
+        StringBuilder sb = new StringBuilder("");
+        for(int i=0;i<k;i++){
+            sb.append(splited[i]);
+            sb.append(" ");
+        }
+        return sb.toString().trim();
+    }
+}
+//Split the sentences into an array of words and then return first k words with necessary spaces.
