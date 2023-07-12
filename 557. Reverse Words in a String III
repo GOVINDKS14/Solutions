@@ -1,0 +1,15 @@
+class Solution {
+    public String reverseWords(String s) {
+        StringBuilder sb = new StringBuilder("");
+        String splited[] = s.split("\\s+");
+        for(int j=0;j<splited.length;j++){
+            String a = splited[j];
+            for(int i=a.length()-1;i>=0;i--){
+                sb.append(a.charAt(i));
+            }
+            sb.append(' ');
+        }
+        return sb.toString().trim();
+    }
+}
+//Split the string by spaces and then traverse the split words one by one from end to start and keep appending, after the traversal of one word add one space. Return by using trim to eliminate the last extra space.
