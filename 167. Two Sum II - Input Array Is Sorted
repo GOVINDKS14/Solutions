@@ -1,0 +1,46 @@
+class Solution {
+    public int binSearch(int arr[],int l,int r,int x){
+        if (r>=l){
+            int mid = l+(r-l)/2;
+            if (arr[mid]==x)
+                return mid+1;
+            if (arr[mid]>x)
+                return binSearch(arr,l,mid-1,x);
+            else
+                return binSearch(arr,mid+1,r,x);
+        }
+        return -1;
+    }
+    public int[] twoSum(int[] numbers, int target) {
+        /*
+        int ans[] = new int[2];
+        for(int i=0;i<numbers.length;i++){
+            int x=numbers[i];
+            for(int j=i+1;j<numbers.length;j++){
+                if(x==target-numbers[j]){
+                    ans[0]=i+1;
+                    ans[1]=j+1;
+                    break;
+                }
+            }
+        }
+        return ans;
+        TLE
+        TC- O(n^2)
+        */
+
+        int ans[] = new int[2];
+        for(int i=0;i<numbers.length;i++){
+            int x=numbers[i];
+            int idx = binSearch(numbers,i+1,numbers.length-1,target-x);
+            if(idx!=-1){
+                ans[0]=i+1;
+                ans[1]=idx;
+                break;
+            }
+        }
+        return ans;
+        //Use binary search instead of linear search
+        //TC- O(n)
+    }
+}
