@@ -1,0 +1,23 @@
+class Solution {
+    public int findLucky(int[] arr) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int i=0;i<arr.length;i++){
+            if(map.containsKey(arr[i])==true) {
+                int freq=map.get(arr[i]);
+                map.put(arr[i],freq+1);
+            }
+            else map.put(arr[i],1);
+        }
+        Set<Integer> set=new HashSet<>();
+        for(int i=0;i<arr.length;i++){
+            int freq=map.get(arr[i]);
+            if(freq==arr[i]) set.add(arr[i]);
+        }
+        int max=Integer.MIN_VALUE;
+        for(int i: set){
+            if(i>max) max=i;
+        }
+        return max==Integer.MIN_VALUE?-1:max;
+    }
+}
+//Create set and place each element having freq==val of element. Find max in the set, if not return -1.
