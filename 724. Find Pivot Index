@@ -1,0 +1,21 @@
+class Solution {
+    public int leftSum(int nums[], int idx){
+        if(idx==0) return 0;
+        int sum=0;
+        for(int i=0;i<idx;i++) sum+=nums[i];
+        return sum;
+    }
+    public int rightSum(int nums[], int idx){
+        if(idx==nums.length-1) return 0;
+        int sum=0;
+        for(int i=idx+1;i<nums.length;i++) sum+=nums[i];
+        return sum;
+    }
+    public int pivotIndex(int[] nums) {
+        for(int i=0;i<nums.length;i++){
+            if(leftSum(nums,i)==rightSum(nums,i)) return i;
+        }
+        return -1;
+    }
+}
+//Question is same as 1991.
