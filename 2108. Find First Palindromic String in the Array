@@ -1,0 +1,21 @@
+class Solution {
+    public boolean checkPalindrome(String w){
+        int i=w.length()/2;
+        while(i>=0){
+            if(w.charAt(i)!=w.charAt(w.length()-i-1)) return false;
+            i--;
+        }
+        return true;
+    }
+    public String firstPalindrome(String[] words) {
+        int idx=-1;
+        for(int i=0;i<words.length;i++){
+            if(checkPalindrome(words[i])==true){
+                idx=i;
+                break;
+            }
+        }
+        return idx==-1?"":words[idx];
+    }
+}
+//Check the index of the first palindromic string and then return it. If not, return ""
