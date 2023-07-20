@@ -1,0 +1,10 @@
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        Set<Character> set = new HashSet<>();
+        for(int i=0;i<sentence.length();i++){
+            set.add(sentence.charAt(i));
+        }
+        return set.size()==26;
+    }
+}
+//Create set and put the letters in it. If set's size becomes 26, the sentence is pangram. 
