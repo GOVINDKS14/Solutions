@@ -1,0 +1,29 @@
+Given a string s, remove the vowels 'a', 'e', 'i', 'o', and 'u' from it, and return the new string.
+
+Example 1:
+Input: s = "leetcodeisacommunityforcoders"
+Output: "ltcdscmmntyfrcdrs"
+
+Example 2:
+Input: s = "aeiou"
+Output: ""
+
+Constraints:
+  - 1 <= s.length <= 1000
+  - s consists of only lowercase English letters.
+
+Code:
+
+class Main {
+  public static void main(String[] args) {
+    StringBuilder sb=new StringBuilder("");
+    String str="leetcodeisacommunityforcoders";
+    for(int i=0;i<str.length();i++){
+      char ch=str.charAt(i);
+      if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u') continue;
+      else sb.append(ch);
+    }
+    System.out.println(sb.toString());
+  }
+}
+//Skip the vowels and add only consonants.
