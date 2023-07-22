@@ -1,0 +1,14 @@
+class Solution {
+    public int countSeniors(String[] details) {
+        int cnt=0;
+        for(int i=0;i<details.length;i++){
+            String str=details[i];
+            StringBuilder sb=new StringBuilder("");
+            sb.append(str.charAt(11));
+            sb.append(str.charAt(12));
+            int age=Integer.valueOf(sb.toString());
+            if(age>60) cnt++;
+        }
+        return cnt;
+    }
+}
