@@ -1,0 +1,20 @@
+class Solution {
+    public String sortVowels(String s) {
+        StringBuilder sb = new StringBuilder("");
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U') sb.append(ch);
+        }
+        char vowels[] = sb.toString().toCharArray();
+        Arrays.sort(vowels);
+        int idx=0;
+        StringBuilder sbf = new StringBuilder("");
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U') sbf.append(vowels[idx++]);
+            else sbf.append(ch);
+        }
+        return sbf.toString();
+    }
+}
+//Sort the vowels of the given string by converting the vowels into the array of characters. Sort the array. Now make a string using stringbuilder, if it is consonant keep it, if it is vowel then add the characters of the vowels array. 
