@@ -1,0 +1,12 @@
+class Solution {
+    public boolean isGood(int[] nums) {
+        Arrays.sort(nums);
+        int a=1;
+        for(int i=0;i<nums.length-1;i++){
+            if(nums[i]!=a) return false;
+            a++;
+        }
+        return nums[nums.length-1]==nums.length-1?true:false;
+    }
+}
+//Sort the array and then compare every element from 1 to n-1. Also compare last element with n-1. If it is, return true.
