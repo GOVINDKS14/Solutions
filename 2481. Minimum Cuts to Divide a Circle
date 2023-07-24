@@ -1,0 +1,8 @@
+class Solution {
+    public int numberOfCuts(int n) {
+        if(n==1) return 0;
+        return n%2==0?n/2:n;
+    }
+}
+// To divide the circle into n even parts we need n/2 lines and to divide the circle into n odd parts we need n lines. 
+// If n==1 then we don't need any line bcz the circle itself is 1 part.
