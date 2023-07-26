@@ -1,0 +1,18 @@
+class Solution {
+    public String reverseOnlyLetters(String s) {
+        Stack<Character> st = new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if((ch>='a' && ch<='z')||(ch>='A' && ch<='Z')) st.push(ch);
+        }
+        StringBuilder sb = new StringBuilder("");
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if((ch>='a' && ch<='z') || (ch>='A' && ch<='Z')) sb.append(st.pop());
+            else sb.append(ch);
+        }
+        return sb.toString();
+    }
+}
+//Use the stack to reverse the alphabets. Use a stringbuilder and append it by poping one by one from the stack, 
+//according to the position of alphabets in the main given string.
