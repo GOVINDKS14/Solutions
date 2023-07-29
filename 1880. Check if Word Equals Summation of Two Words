@@ -1,0 +1,18 @@
+class Solution {
+    public int getNum(char ch){
+        int n=ch;
+        return n-97;
+    }
+    public int getSum(String word){
+        StringBuilder sb1=new StringBuilder("");
+        for(int i=0;i<word.length();i++){
+            char ch = word.charAt(i);
+            sb1.append(getNum(ch));
+        }
+        return Integer.parseInt(sb1.toString());
+    }
+    public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
+        return getSum(firstWord)+getSum(secondWord)==getSum(targetWord)?true:false;
+    }
+}
+//Use the ascii value to get a=0,b=1,c=2,....
