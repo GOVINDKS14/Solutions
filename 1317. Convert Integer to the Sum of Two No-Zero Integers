@@ -1,0 +1,21 @@
+class Solution {
+    public boolean checkZero(int n){
+        String s = Integer.toString(n);
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch=='0') return true;
+        }
+        return false;
+    }
+    public int[] getNoZeroIntegers(int n) {
+        int ans[] = new int[2];
+        for(int i=1;i<n;i++){
+            if(checkZero(i)==false && checkZero(n-i)==false){
+                ans[0]=i;
+                ans[1]=n-i;
+            }
+        }
+        return ans;
+    }
+}
+//Check zero in the number. Like 1+10=11 is invalid but 2+9=11 valid.
