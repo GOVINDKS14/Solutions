@@ -1,0 +1,19 @@
+class Solution {
+    public String removeDuplicates(String s) {
+        Stack<Character> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder("");
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(stack.isEmpty()==true) stack.push(ch);
+            else if(stack.peek()==ch) stack.pop();
+            else stack.push(ch);
+        }
+        while(stack.isEmpty()==false){
+            sb.append(stack.pop());
+        }
+        return sb.reverse().toString();
+    }
+}
+//Make a stack to check adjacent characters.
+//Make a StringBuilder and append the characters after you reached the end of the string while traversing.
+//Reverse the StringBuilder, convert it to String and return.
