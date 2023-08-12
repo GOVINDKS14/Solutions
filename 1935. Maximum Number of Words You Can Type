@@ -1,0 +1,26 @@
+class Solution {
+    public boolean canBeTyped(String s, String brokenLetters){
+        Set<Character> set = new HashSet<>();
+        for(int i=0;i<s.length();i++){
+            set.add(s.charAt(i));
+        }
+        for(int i=0;i<brokenLetters.length();i++){
+            if(set.contains(brokenLetters.charAt(i))==true) return false;
+        }
+        return true;
+    }
+    public int canBeTypedWords(String text, String brokenLetters) {
+        int cnt=0;
+        String splited[] = text.split("\\s+");
+        for(int i=0;i<splited.length;i++){
+            if(canBeTyped(splited[i],brokenLetters)==true) cnt++;
+        }
+        return cnt;
+    }
+}
+// Make an array splited[] by spliting the 'text' by spaces.
+// Now in 'canBeTyped' make a set of a word of the 'text'.
+// Traverse the 'brokenLetters' and check whether its characters are present in the set or not. If yes, then the word can't be typed.
+// Repeat the process for each word present in the splited[].
+// If the woord can be typed then increment the count.
+// Return count. 
