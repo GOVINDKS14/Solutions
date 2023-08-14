@@ -1,0 +1,23 @@
+class Solution {
+    public int giveIndex(int nums2[], int x){
+        int idx=-1;
+        for(int i=0;i<nums2.length;i++){
+            if(nums2[i]==x) idx=i;
+        }
+        return idx;
+    }
+    public int returnNextGreater(int nums2[], int idx, int x){
+        for(int i=idx;i<nums2.length;i++){
+            if(nums2[i]>x) return nums2[i];
+        }
+        return -1;
+    }
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int ans[] = new int[nums1.length];
+        for(int i=0;i<nums1.length;i++){
+            int idx=giveIndex(nums2,nums1[i]);
+            ans[i] = returnNextGreater(nums2,idx,nums1[i]);
+        }
+        return ans;
+    }
+}
