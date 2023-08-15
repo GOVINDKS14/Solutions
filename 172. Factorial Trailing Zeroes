@@ -1,0 +1,8 @@
+class Solution {
+    public int trailingZeroes(int n) {
+        return n==0 ? 0 : n/5 + trailingZeroes(n/5);
+    }
+}
+// Trailing Zeroes comes from pairs of 2*5.
+//Also in a factorial, presence of 2 are always more than enough times.
+// So we only have to find the count of 5.
