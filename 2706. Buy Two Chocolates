@@ -1,0 +1,8 @@
+class Solution {
+    public int buyChoco(int[] prices, int money) {
+        Arrays.sort(prices);
+        return (prices[0]>money || prices[0]+prices[1]>money)?money:money-prices[0]-prices[1];
+    }
+}
+// Sort the array. If prices[0] or prices[0]+prices[1]>money return money.
+// Else return money after buying first two min price elements.
