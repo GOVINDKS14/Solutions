@@ -1,0 +1,26 @@
+class Solution {
+    public int checkPrime(int n){
+        for(int i=2;i<=Math.sqrt(n);i++){
+            if(n%i==0) return 0;
+        }
+        return 1;
+    }
+    public int distinctPrimeFactors(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for(int j=0;j<nums.length;j++){
+            for(int i=2;i<=nums[j];i++){
+                if(checkPrime(i)==1){
+                    int x=nums[j];
+                    while(x%i==0){
+                        set.add(i);
+                        x/=i;
+                    }
+                }
+            }
+        }
+        return set.size();
+    }
+}
+// Caculating the product will give the TLE as the product can be too large.
+// So, Find the prime factor of the each numbers and add them to SET as we don't have to count a factor more than once.
+// Return set.size()
