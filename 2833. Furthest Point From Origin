@@ -1,0 +1,36 @@
+/* JAVA SOLUTION */
+
+class Solution {
+    public int furthestDistanceFromOrigin(String moves) {
+        int cntLeft=0,cntRight=0,cntUnderScore=0;
+        for(int i=0;i<moves.length();i++){
+            char ch=moves.charAt(i);
+            if(ch=='L') cntLeft++;
+            if(ch=='R') cntRight++;
+        }
+        cntUnderScore=moves.length()-cntLeft-cntRight;
+        return cntLeft>cntRight?cntLeft+cntUnderScore-cntRight:cntRight+cntUnderScore-cntLeft;
+    }
+}
+
+/*
+- Count no. of 'L', '_' and 'R' in the given string.
+- If cntLeft is greater than cntRight, then we have to consider '_' as 'L' and subtract 'R' to get maximum distance.
+- If cntRight is greater than cntLeft, then we have to consider '_' as 'R' and subtract 'L' to get the maximum distance.
+- If cntLeft==cntRight, then we can replace '_' by 'R' or 'L' and subtract 'L' or 'R' respectively, to get the maximum distance.
+*/
+
+
+
+/* PYTHON SOLUTION */
+
+class Solution:
+    def furthestDistanceFromOrigin(self, moves: str) -> int:
+        cntLeft=cntRight=cntUnderScore=0
+        for i in range(0,len(moves)):
+            if moves[i]=='L':
+                cntLeft+=1
+            if moves[i]=='R':
+                cntRight+=1
+        cntUnderScore = len(moves)-cntLeft-cntRight
+        return cntLeft+cntUnderScore-cntRight if cntLeft>cntRight else cntRight+cntUnderScore-cntLeft
