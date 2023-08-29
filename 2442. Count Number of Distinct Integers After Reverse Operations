@@ -1,0 +1,23 @@
+class Solution {
+    public int reversed(int n){
+        int rev=0;
+        while(n!=0){
+            int digit = n%10;
+            rev = 10*rev+digit;
+            n/=10;
+        }
+        return rev;
+    }
+    public int countDistinctIntegers(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for(int i=0;i<nums.length;i++){
+            set.add(nums[i]);
+        }
+        for(int i=0;i<nums.length;i++){
+            set.add(reversed(nums[i]));
+        }
+        return set.size();
+    }
+}
+// Use set to keep track of distinct elements.
+// Return set.size()
