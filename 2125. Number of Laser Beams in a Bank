@@ -1,0 +1,36 @@
+class Solution {
+    public int countLasers(String s){
+        int cnt=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='1') cnt++;
+        }
+        return cnt;
+    }
+    public int numberOfBeams(String[] bank) {
+        int totalLasers=0;
+        for(int i=0;i<bank.length;i++){
+            String currRow = bank[i];
+            if(countLasers(currRow)==0) continue;
+            for(int j=i+1;j<bank.length;j++){
+                String nextRow = bank[j];
+                if(countLasers(nextRow)==0) continue;
+                else{
+                    totalLasers+=(countLasers(nextRow)*countLasers(currRow));
+                    break;
+                }
+            }
+        }
+        return totalLasers;
+    }
+}
+/*
+-'countLasers' counts the laser in a particular row.
+
+Find 1st row having at least 1 laser, say 'currRow'.
+Similarly, find first row after 1st one which is having at least 1 laser, say 'nextRow'.
+Find the product of the lasers in 'currRow' and 'nextRow'.
+Simulate the process.
+If there is no laser in a row, use continue to move to next row.
+Also, when you found 'nextRow', there is no need to count laser in the next row. Use break to exit the loop.
+
+*/
