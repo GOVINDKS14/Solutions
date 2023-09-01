@@ -1,0 +1,30 @@
+class Solution {
+    public int maxCoins(int[] piles) {
+        Arrays.sort(piles);
+        int times = piles.length/3, idx=piles.length-2;
+        int sum=0;
+        while(times>0){
+            sum+=piles[idx];
+            idx=idx-2;
+            times--;
+        }
+        return sum;
+    }
+}
+/*
+
+-Let's take example of [9,8,7,6,5,1,2,3,4]
+-Sorted array: [1,2,3,4,5,6,7,8,9]
+
+-Now, we have to find the MAX number of coins .
+-Also, 'Alice' get the max of the triplet ==> We have to pick the second    largest in each triplet to get MAX NUMBER OF COINS.
+-So, the triplets should be
+-[9,*8,1]
+-[7,*6,2]
+-[5,*4,3]
+
+So the MAX number of coins = 8+6+4=18
+
+Also there can be n/3 triplets if the size of the array is n.
+
+*/
