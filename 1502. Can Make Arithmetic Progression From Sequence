@@ -1,0 +1,12 @@
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] arr) {
+        Arrays.sort(arr);
+        for(int i=1;i<arr.length-1;i++){
+            int prevDiff = arr[i]-arr[i-1];
+            int currDiff = arr[i+1]-arr[i];
+            if(prevDiff!=currDiff) return false;
+        }
+        return true;
+    }
+}
+// Sort the array and compare the difference between elements
