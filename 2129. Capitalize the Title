@@ -1,0 +1,21 @@
+class Solution {
+    public String capitalizeTitle(String title) {
+        String splited[] = title.split("\\s++");
+        for(int i=0;i<splited.length;i++){
+            String word = splited[i];
+            if(word.length()<=2){
+                splited[i]=word.toLowerCase();
+            }
+            else{
+                word=word.toLowerCase();
+                splited[i]=word.substring(0, 1).toUpperCase()+word.substring(1);
+            }
+        }
+        StringBuilder sb = new StringBuilder("");
+        for(int i=0;i<splited.length;i++){
+            sb.append(splited[i]);
+            sb.append(' ');
+        }
+        return sb.toString().trim();
+    }
+}
