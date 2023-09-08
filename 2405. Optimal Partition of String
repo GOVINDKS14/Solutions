@@ -1,0 +1,24 @@
+class Solution {
+    public int partitionString(String s) {
+        int cnt=0;
+        Set<Character> set= new HashSet<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(set.contains(ch)==false){
+                set.add(ch);
+            }
+            else{
+                set.clear();
+                cnt++;
+                set.add(ch);
+            }
+        }
+        return ++cnt;
+    }
+}
+/*
+- Make a set to keep track of scanned letters of a particular substring.
+- If the element scanned is present in the set this means that letter is already present in the substring. (We have to look for the duplicate letters.)
+- Using this will not count the last substring as cnt will not get increased for the last substring.
+- So, we have to return ++cnt.
+*/
