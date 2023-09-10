@@ -1,0 +1,29 @@
+class Solution {
+    public boolean checkLetter(String s,char ch){
+        if(ch>='a' && ch<='z'){
+            for(int i=0;i<s.length();i++){
+                if(s.charAt(i)==Character.toUpperCase(ch)) return true;
+            }
+        }
+        else{
+            for(int i=0;i<s.length();i++){
+                if(s.charAt(i)==Character.toLowerCase(ch)) return true;
+            }
+        }
+        return false;
+    }
+    public String greatestLetter(String s) {
+        StringBuilder sb=new StringBuilder("");
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(checkLetter(s,ch)==true){
+                sb.append(Character.toUpperCase(ch));
+            }
+        }
+        String ans=sb.toString();
+        if(ans=="") return "";
+        char characters[] = ans.toCharArray();
+        Arrays.sort(characters);
+        return Character.toString(characters[characters.length-1]);
+    }
+}
