@@ -1,0 +1,18 @@
+class Solution {
+    public boolean isFascinating(int n) {
+        StringBuilder sb = new StringBuilder("");
+        sb.append(n);
+        sb.append(2*n);
+        sb.append(3*n);
+        String s = sb.toString();
+        char ch[] = s.toCharArray();
+        Arrays.sort(ch);
+        for(int i=0;i<ch.length;i++){
+            if(Character.getNumericValue(ch[i])!=i+1) return false;
+            if(Character.getNumericValue(ch[i])==0) return false;
+        }
+        return true;
+    }
+}
+// Converting the string so formed into a char array and sorting it.
+// Check the conditions.
