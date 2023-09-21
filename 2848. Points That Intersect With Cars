@@ -1,0 +1,13 @@
+class Solution {
+    Set<Integer> set = new HashSet<>();
+    public void addNumbers(int a, int b){
+        for(int i=a;i<=b;i++) set.add(i);
+    }
+    public int numberOfPoints(List<List<Integer>> nums) {
+        for(int i=0;i<nums.size();i++){
+            addNumbers(nums.get(i).get(0),nums.get(i).get(1));
+        }
+        return set.size();
+    }
+}
+//Use a set to keep track of already visited points.
