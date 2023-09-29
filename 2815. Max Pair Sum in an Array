@@ -1,0 +1,22 @@
+class Solution {
+    public int maxDigit(int n){
+        int max=Integer.MIN_VALUE;
+        String num=Integer.toString(n);
+        for(int i=0;i<num.length();i++){
+            if(Character.getNumericValue(num.charAt(i))>max) max=Character.getNumericValue(num.charAt(i));
+        }
+        return max;
+    }
+    public int maxSum(int[] nums) {
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(maxDigit(nums[i])==maxDigit(nums[j])){
+                    int sum=nums[i]+nums[j];
+                    if(sum>max) max=sum; 
+                }
+            }
+        }
+        return max==Integer.MIN_VALUE?-1:max;
+    }
+}
