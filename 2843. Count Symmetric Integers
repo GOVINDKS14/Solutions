@@ -1,0 +1,20 @@
+class Solution {
+    public boolean checkSymmetric(String num){
+        int lSum=0,rSum=0;
+        for(int i=0;i<num.length()/2;i++){
+            lSum+=Character.getNumericValue(num.charAt(i));
+        }
+        for(int i=num.length()/2;i<num.length();i++){
+            rSum+=Character.getNumericValue(num.charAt(i));
+        }
+        return rSum==lSum;
+    }
+    public int countSymmetricIntegers(int low, int high) {
+        int cnt=0;
+        for(int i=low;i<=high;i++){
+            String num=Integer.toString(i);
+            if(num.length()%2==0 && checkSymmetric(num)==true) cnt++;
+        }
+        return cnt;
+    }
+}
