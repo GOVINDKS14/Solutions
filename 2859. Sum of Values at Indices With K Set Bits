@@ -1,0 +1,11 @@
+class Solution {
+    public int sumIndicesWithKSetBits(List<Integer> nums, int k) {
+        int i=nums.size()-1, sum=0;
+        while(i>=0){
+            String bin = Integer.toBinaryString(i);
+            if(Integer.bitCount(i)==k) sum+=nums.get(i);
+            i--;
+        }
+        return sum;
+    }
+}
