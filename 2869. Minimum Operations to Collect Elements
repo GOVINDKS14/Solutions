@@ -1,0 +1,20 @@
+class Solution {
+    List<Integer> collected = new ArrayList<>();
+    public boolean checkCollected(int k){
+        for(int i=1;i<=k;i++){
+            if(collected.contains(i)==false) return false;
+        }
+        return true;
+    }
+    public int minOperations(List<Integer> nums, int k) {
+        int ans=0;
+        for(int i=nums.size()-1;i>=0;i--){
+            if(checkCollected(k)==false){
+                collected.add(nums.get(i));
+                ans++;
+            }
+            else break;
+        }
+        return ans;
+    }
+}
