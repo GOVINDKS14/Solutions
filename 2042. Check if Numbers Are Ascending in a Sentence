@@ -1,0 +1,17 @@
+class Solution {
+    public boolean areNumbersAscending(String s) {
+        String arr[] = s.split("\\s+");
+        List<Integer> list = new ArrayList<>();
+        for(int i=0;i<arr.length;i++){
+            char firstChar = arr[i].charAt(0);
+            if(firstChar>='1' && firstChar<='9') list.add(Integer.valueOf(arr[i]));
+        }
+        int min = Integer.MIN_VALUE;
+        for(int i=0;i<list.size();i++){
+            if(min>=list.get(i)) return false;
+            else min=list.get(i);
+        }
+        return true;
+    }
+}
+//Extract the integer by checking the first character of every string.
